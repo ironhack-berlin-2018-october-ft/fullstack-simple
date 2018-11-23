@@ -17,6 +17,8 @@ $ npm install
 $ npm run dev
 ```
 
+To test, you can go there: http://localhost:5000/api/projects
+
 **For the client**
 ```sh
 $ cd project-management-client
