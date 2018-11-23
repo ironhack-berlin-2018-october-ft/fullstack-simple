@@ -16,11 +16,21 @@ router.get('/projects', (req, res, next) => {
     })
 });
 
-router.post('/projects', (req, res, next)=>{
+function isConnected(req,res,next) {
+  if (!req.user) {
+    res.status(400).json({message: "Unauthorized"})
+  }
+  else {
+    next()
+  }
+}
+
+router.post('/projects', isConnected, (req, res, next)=>{
   Project.create({
     title: req.body.title,
     description: req.body.description,
-    tasks: []
+    tasks: [],
+    owner: req.user._id 
   })
     .then(response => {
       res.json(response);
