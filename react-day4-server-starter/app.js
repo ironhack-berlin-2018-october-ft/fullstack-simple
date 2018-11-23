@@ -37,7 +37,7 @@ const app = express();
 app.use(cors({
   credentials: true,
   // We will let our React application (http://localhost:3000) accessing our API
-  origin: ['http://localhost:3000']
+  origin: ['http://localhost:3000','http://localhost:3002']
 }));
 
 
